@@ -1,3 +1,5 @@
+package defult;
+
 
 import java.awt.geom.RoundRectangle2D;
 
@@ -49,34 +51,34 @@ public class Welcome extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 255));
         jLabel3.setText("Student management system");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 400, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 380, 30));
 
         jLabel4.setFont(new java.awt.Font("Showcard Gothic", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 255));
         jLabel4.setText("Welcome");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
         Prograss.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
         Prograss.setStringPainted(true);
-        jPanel1.add(Prograss, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 340, 30));
+        jPanel1.add(Prograss, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 340, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Loading...");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(400, 264));
+        setSize(new java.awt.Dimension(480, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,9 +115,9 @@ public class Welcome extends javax.swing.JFrame {
                 new Welcome().setVisible(true);
             }
         });*/
-        Welcome loadW =new Welcome(); 
+       Welcome loadW =new Welcome(); 
        loadW.setVisible(true);
-        try
+       try
        {
            for(int i=0; i<100; i++)
            
