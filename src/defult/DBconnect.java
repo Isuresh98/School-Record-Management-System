@@ -50,21 +50,22 @@ public class DBconnect {
     public static Connection connect()
     {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con =(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagement","root","");
                
-                System.out.println("Successfully connected to MySQL database test");
+                System.out.println("Successfully connected to MySQL database");
                 return con;
                   }
+            
       catch (Exception e) {
        
           System.out.println(e);
-          System.out.println("An error occurred while connecting MySQL databse");
+          System.out.println("Error connecting MySQL databse ");
           return null;
         
                 }
             
-    }
+    }//Connect methord
    
     
 }

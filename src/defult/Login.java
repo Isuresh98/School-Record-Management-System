@@ -3,6 +3,7 @@ package defult;
 import com.mysql.jdbc.Connection;
 import java.sql.Statement;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.*; 
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,7 +20,8 @@ Statement stm =null;
     /** Creates new form Login */
     public Login() {
         initComponents();
-        con =databaseConnection.connection();
+       con =DBconnect.connect();
+       errorMSG.setVisible(false);
        
                 
                 
@@ -41,7 +43,7 @@ Statement stm =null;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        errorMSG = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         User = new javax.swing.JTextField();
@@ -55,9 +57,9 @@ Statement stm =null;
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel1.setText("ErrorMassage");
+        errorMSG.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        errorMSG.setForeground(new java.awt.Color(255, 102, 102));
+        errorMSG.setText("ErrorMassage");
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 255));
@@ -102,7 +104,7 @@ Statement stm =null;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errorMSG, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +134,7 @@ Statement stm =null;
                     .addComponent(jLabel3)
                     .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(errorMSG)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ex)
@@ -166,6 +168,34 @@ Statement stm =null;
 
     private void logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logActionPerformed
         // TODO add your handling code here:
+        try {
+            stm=con.createStatement();
+            String quere = "SELECT * FROM admin";
+            String Username =User.getText();
+            String Password =Pass.getText();
+            
+            ResultSet rs = stm.executeQuery(quere);
+            
+            while(rs.next())
+            {
+                if(Username.equals(rs.getString(2))&& Password.equals(rs.getString(3)))
+                { setVisible(false);
+                HomeF viweForm =new HomeF();
+                viweForm.setVisible(true);
+                
+                }else{
+                    errorMSG.setVisible(true);
+                    errorMSG.setText("Incorrect Username Or Password");
+                    }
+                
+            }
+            
+          
+               } 
+        
+        catch (Exception e) {
+            System.out.println("Loging Error"+e);
+        }
     }//GEN-LAST:event_logActionPerformed
 
     /**
@@ -206,8 +236,8 @@ Statement stm =null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Pass;
     private javax.swing.JTextField User;
+    private javax.swing.JLabel errorMSG;
     private javax.swing.JButton ex;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
