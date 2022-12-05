@@ -144,6 +144,7 @@ public class HomeF extends javax.swing.JFrame {
         setVisible(false);
         Login LoginPage = new Login();
         LoginPage.setVisible(true);
+     
         
     }//GEN-LAST:event_LogOutActionPerformed
 

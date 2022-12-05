@@ -4,6 +4,7 @@ import com.mysql.jdbc.Connection;
 import java.sql.Statement;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.*; 
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -26,11 +27,8 @@ Statement stm =null;
                 
                 
          //create transperant
-        setOpacity(0.9f); //30% transparant
-        //fram aligent central
-        setLocationRelativeTo(null);
-         //round Conner ser
-        setShape(new RoundRectangle2D.Double(0,0,getWidth(), getHeight(),75, 75));
+        
+         
     }
 
     /** This method is called from within the constructor to
@@ -195,6 +193,8 @@ Statement stm =null;
                 }else{
                     errorMSG.setVisible(true);
                     errorMSG.setText("Incorrect Username Or Password");
+                    
+                    JOptionPane.showMessageDialog(null,"Incorrect Username Or Password ","Error", JOptionPane.ERROR_MESSAGE);
                     }
                 
             }

@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 
 
 
+
 public class DBconnect {
     
     
@@ -60,9 +61,18 @@ public class DBconnect {
       catch (Exception e) {
        
           System.out.println(e);
-          System.out.println("Error connecting MySQL databse ");
-          return null;
-        
+           System.out.println("Error connected to MySQL database"); 
+           
+           Exit ex = new Exit();
+             ex.setVisible(true);
+             Login log = new Login();
+           log.setVisible(false);
+           return null;
+           
+               
+           
+           
+           
                 }
             
     }//Connect methord

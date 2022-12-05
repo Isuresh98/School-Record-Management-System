@@ -62,6 +62,7 @@ public class StudentData extends javax.swing.JFrame {
         Grade = new javax.swing.JComboBox<>();
         Submit = new javax.swing.JButton();
         Search = new javax.swing.JButton();
+        Clear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,6 +200,13 @@ public class StudentData extends javax.swing.JFrame {
             }
         });
 
+        Clear.setText("Clear");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -249,16 +257,18 @@ public class StudentData extends javax.swing.JFrame {
                                 .addComponent(Search))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(GName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(Submit)))
+                                    .addComponent(GName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(Clear)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(Submit))
+                                        .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(274, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -309,7 +319,9 @@ public class StudentData extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Submit)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Submit)
+                    .addComponent(Clear))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -360,6 +372,22 @@ public class StudentData extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CNumberActionPerformed
 
+    private void ClearData(){
+        ID.setText("");
+         Age.setText("");
+        Name.setText("");
+        Address.setText("");
+        Grade.setSelectedItem("");
+        Bithday.setText("");
+        Gendar.setSelectedItem("");
+        AdminDate.setText("");
+        GName.setText("");
+        CNumber.setText("");
+        JOptionPane.showMessageDialog(null,"Clear Data..");
+        
+    }
+    
+    
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
         try {
@@ -392,10 +420,11 @@ public class StudentData extends javax.swing.JFrame {
             prapareStm.setInt(10, SContact);
             
             prapareStm.execute();
-            JOptionPane.showMessageDialog(null,"Adding Informaion: - "+SId);
+            JOptionPane.showMessageDialog(null,"Adding Informaion Student: - "+SName+" ID= "+SId );
            
         } catch (Exception e) {
             System.out.println(e);
+             JOptionPane.showMessageDialog(null,"Not Submit..Cheak Your Form..");
         }
     }//GEN-LAST:event_SubmitActionPerformed
 
@@ -417,10 +446,19 @@ public class StudentData extends javax.swing.JFrame {
                   Name.setText(Rs.getString("Name"));
                   Address.setText(Rs.getString("Address"));
                   Grade.setSelectedItem(Rs.getString("Grade"));
-                  Age.setText(Rs.getString("Age"));
-                   Bithday.setText(Rs.getString("Brithday"));
+                  
+                  Age.setText(String.format("%s",Rs.getString("Age") ));
+                  
+                   Bithday.setText(String.format("%td", Rs.getDate("Brithday")));
+                   
                    Gendar.setSelectedItem(Rs.getString("Gender"));
-                    AdminDate.setText(Rs.getString("AdmisstionDate"));
+                   
+                    AdminDate.setText(String.format("%td", Rs.getDate("AdmisstionDate")));
+                    
+                    
+                    GName.setText(Rs.getString("GuradiansName"));
+                    
+                    CNumber.setText(String.format (0+ "%s",Rs.getInt("ContactNumber")));
                     
                     
                   
@@ -429,8 +467,14 @@ public class StudentData extends javax.swing.JFrame {
             
         } catch (Exception e) {
             System.out.println(e);
+            JOptionPane.showMessageDialog(null,"Invalid ID.....");
         }
     }//GEN-LAST:event_SearchActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        ClearData();
+    }//GEN-LAST:event_ClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,6 +517,7 @@ public class StudentData extends javax.swing.JFrame {
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Bithday;
     private javax.swing.JTextField CNumber;
+    private javax.swing.JButton Clear;
     private javax.swing.JTextField GName;
     private javax.swing.JComboBox<String> Gendar;
     private javax.swing.JComboBox<String> Grade;
