@@ -27,51 +27,51 @@ public class HomeF extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        javax.swing.JButton jButton1 = new javax.swing.JButton();
-        javax.swing.JButton jButton2 = new javax.swing.JButton();
-        javax.swing.JButton jButton3 = new javax.swing.JButton();
+        javax.swing.JButton StudentBT = new javax.swing.JButton();
+        javax.swing.JButton TeacherBT = new javax.swing.JButton();
+        javax.swing.JButton PrincipalBT = new javax.swing.JButton();
         LogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/Student.png"))); // NOI18N
-        jButton1.setAlignmentX(0.4F);
-        jButton1.setAlignmentY(0.0F);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton1.setMinimumSize(new java.awt.Dimension(1, 1));
-        jButton1.setPreferredSize(new java.awt.Dimension(20, 20));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        StudentBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/Student.png"))); // NOI18N
+        StudentBT.setAlignmentX(0.4F);
+        StudentBT.setAlignmentY(0.0F);
+        StudentBT.setContentAreaFilled(false);
+        StudentBT.setMaximumSize(new java.awt.Dimension(50, 50));
+        StudentBT.setMinimumSize(new java.awt.Dimension(1, 1));
+        StudentBT.setPreferredSize(new java.awt.Dimension(20, 20));
+        StudentBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                StudentBTActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/teacher.png"))); // NOI18N
-        jButton2.setAlignmentX(0.4F);
-        jButton2.setAlignmentY(0.0F);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton2.setMinimumSize(new java.awt.Dimension(1, 1));
-        jButton2.setPreferredSize(new java.awt.Dimension(20, 20));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        TeacherBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/teacher.png"))); // NOI18N
+        TeacherBT.setAlignmentX(0.4F);
+        TeacherBT.setAlignmentY(0.0F);
+        TeacherBT.setContentAreaFilled(false);
+        TeacherBT.setMaximumSize(new java.awt.Dimension(50, 50));
+        TeacherBT.setMinimumSize(new java.awt.Dimension(1, 1));
+        TeacherBT.setPreferredSize(new java.awt.Dimension(20, 20));
+        TeacherBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                TeacherBTActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/principal.png"))); // NOI18N
-        jButton3.setAlignmentX(0.4F);
-        jButton3.setAlignmentY(0.0F);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton3.setMinimumSize(new java.awt.Dimension(1, 1));
-        jButton3.setPreferredSize(new java.awt.Dimension(20, 20));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        PrincipalBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/principal.png"))); // NOI18N
+        PrincipalBT.setAlignmentX(0.4F);
+        PrincipalBT.setAlignmentY(0.0F);
+        PrincipalBT.setContentAreaFilled(false);
+        PrincipalBT.setMaximumSize(new java.awt.Dimension(50, 50));
+        PrincipalBT.setMinimumSize(new java.awt.Dimension(1, 1));
+        PrincipalBT.setPreferredSize(new java.awt.Dimension(20, 20));
+        PrincipalBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                PrincipalBTActionPerformed(evt);
             }
         });
 
@@ -87,13 +87,13 @@ public class HomeF extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addGap(177, 177, 177)
+                .addComponent(PrincipalBT, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(TeacherBT, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(StudentBT, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,17 +103,12 @@ public class HomeF extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(LogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(LogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(StudentBT, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherBT, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PrincipalBT, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
 
@@ -132,17 +127,17 @@ public class HomeF extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void StudentBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_StudentBTActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void TeacherBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeacherBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_TeacherBTActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void PrincipalBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrincipalBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_PrincipalBTActionPerformed
 
     private void LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutActionPerformed
         // TODO add your handling code here:
