@@ -50,7 +50,7 @@ public class DBconnect {
     public static Connection connect()
     {
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("com.mysql.jdbc.Driver");
                 Connection con =(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagement","root","");
                
                 System.out.println("Successfully connected to MySQL database");
