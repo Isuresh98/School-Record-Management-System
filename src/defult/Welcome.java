@@ -50,7 +50,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 255));
-        jLabel3.setText("Student management system");
+        jLabel3.setText("school management system");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 380, 30));
 
         jLabel4.setFont(new java.awt.Font("Showcard Gothic", 1, 36)); // NOI18N
