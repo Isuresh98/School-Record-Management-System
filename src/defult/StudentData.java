@@ -63,6 +63,7 @@ public class StudentData extends javax.swing.JFrame {
         Submit = new javax.swing.JButton();
         Search = new javax.swing.JButton();
         Clear = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -207,6 +208,13 @@ public class StudentData extends javax.swing.JFrame {
             }
         });
 
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -253,7 +261,7 @@ public class StudentData extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Gendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(Bithday, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(32, 32, 32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Search))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -266,10 +274,13 @@ public class StudentData extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(Clear)
-                                            .addGap(30, 30, 30)
-                                            .addComponent(Submit))
-                                        .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(274, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Submit)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Update))
+                                        .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(12, 12, 12))))))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +332,8 @@ public class StudentData extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Submit)
-                    .addComponent(Clear))
+                    .addComponent(Clear)
+                    .addComponent(Update))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -426,6 +438,8 @@ public class StudentData extends javax.swing.JFrame {
             System.out.println(e);
              JOptionPane.showMessageDialog(null,"Not Submit..Cheak Your Form..");
         }
+        
+        //submit
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
@@ -449,11 +463,11 @@ public class StudentData extends javax.swing.JFrame {
                   
                   Age.setText(String.format("%s",Rs.getString("Age") ));
                   
-                   Bithday.setText(String.format("%td", Rs.getDate("Brithday")));
+                   Bithday.setText(String.format("%tD", Rs.getDate("Brithday")));
                    
                    Gendar.setSelectedItem(Rs.getString("Gender"));
                    
-                    AdminDate.setText(String.format("%td", Rs.getDate("AdmisstionDate")));
+                    AdminDate.setText(String.format("%tD", Rs.getDate("AdmisstionDate")));
                     
                     
                     GName.setText(Rs.getString("GuradiansName"));
@@ -476,6 +490,52 @@ public class StudentData extends javax.swing.JFrame {
         ClearData();
     }//GEN-LAST:event_ClearActionPerformed
 
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
+        try {
+            stm=con.createStatement();
+            int SId =Integer.parseInt(ID.getText());
+            String SName =Name.getText();
+            String SAdress = Address.getText();
+            String Sgrade =(String) Grade.getSelectedItem();
+            int SAge = Integer.parseInt(Age.getText());
+            Long SBithday = Date.parse(Bithday.getText());
+            java.sql.Date Bithday = new java.sql.Date(SBithday);
+            String Sgendar = (String) Gendar.getSelectedItem();
+            Long SAdmitDate =Date.parse(AdminDate.getText());
+            java.sql.Date AdmitDate =new java.sql.Date(SAdmitDate);
+            String SGardiyant = GName.getText();
+            int SContact = Integer.parseInt(CNumber.getText());
+            
+            String Quary = "UPDATE student SET Name = ?,Address = ?,Grade = ?,Age = ?,Brithday = ?,Gender = ?,AdmisstionDate = ?,GuradiansName = ?,ContactNumber = ? WHERE ID = ?";
+            
+            PreparedStatement prapareStm =(PreparedStatement) con.prepareStatement(Quary);
+           
+            prapareStm.setString(1, SName);
+            prapareStm.setString(2, SAdress);
+            prapareStm.setString(3, Sgrade);
+            prapareStm.setInt(4, SAge);
+            prapareStm.setDate(5, Bithday);
+            prapareStm.setString(6, Sgendar);
+            prapareStm.setDate(7,AdmitDate );
+            prapareStm.setString(8, SGardiyant);
+            prapareStm.setInt(9, SContact);
+            prapareStm.setInt(10, SId);
+            
+            prapareStm.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Update Informaion Student: - "+SName+" ID= "+SId );
+           
+        }//try 
+        
+        catch (Exception e) {
+            System.out.println(e);
+             JOptionPane.showMessageDialog(null,"Not Update..Cheak Your Form..");
+        }
+        
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -525,6 +585,7 @@ public class StudentData extends javax.swing.JFrame {
     private javax.swing.JTextField Name;
     private javax.swing.JButton Search;
     private javax.swing.JButton Submit;
+    private javax.swing.JButton Update;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
