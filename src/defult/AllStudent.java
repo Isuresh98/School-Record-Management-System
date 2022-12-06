@@ -4,18 +4,48 @@
  */
 package defult;
 
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author indun
  */
 public class AllStudent extends javax.swing.JFrame {
+    
+    Connection con =null;
+    Statement stm = null;
+    ResultSet rs = null;
 
     /**
      * Creates new form AllStudent
      */
     public AllStudent() {
         initComponents();
+        con = DBconnect.connect();
+        ShowRecord();
+        
     }
+    public void ShowRecord()
+    {
+        try {
+            stm =con.createStatement();
+            if(grade.getSelectedItem().equals("All"))
+            {
+                String quary = "SELECT * FROM student ";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,8 +56,14 @@ public class AllStudent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        grade = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        view = new javax.swing.JTable();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +74,26 @@ public class AllStudent extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 204, 204));
         jLabel2.setText("All Student Records");
 
+        grade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "A", "B", "B", "C", "D" }));
+        grade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeActionPerformed(evt);
+            }
+        });
+
+        view.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(view);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -45,14 +101,24 @@ public class AllStudent extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(314, 314, 314)
                 .addComponent(jLabel2)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(377, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(grade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(grade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,6 +135,51 @@ public class AllStudent extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void gradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeActionPerformed
+        // TODO add your handling code here:
+        try {
+            stm =con.createStatement();
+            if(grade.getSelectedItem().equals("All"))
+            {
+                String quary = "SELECT * FROM student ";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            if(grade.getSelectedItem().equals("A"))
+            {
+                String quary = "SELECT * FROM student WHERE Grade = 'A'";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            if(grade.getSelectedItem().equals("B"))
+            {
+                String quary = "SELECT * FROM student WHERE Grade = 'B'";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            if(grade.getSelectedItem().equals("C"))
+            {
+                String quary = "SELECT * FROM student WHERE Grade = 'C'";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            if(grade.getSelectedItem().equals("D"))
+            {
+                String quary = "SELECT * FROM student WHERE Grade = 'D'";
+                ResultSet re = stm.executeQuery(quary);
+                view.setModel(DbUtils.resultSetToTableModel(re) );
+            
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_gradeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,7 +217,11 @@ public class AllStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> grade;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable view;
     // End of variables declaration//GEN-END:variables
 }
