@@ -22,15 +22,14 @@ import static javax.swing.UIManager.getString;
  *
  * @author indun
  */
-public class TeacherData extends javax.swing.JFrame {
-
-     Connection con=null;
+public class PricipalData extends javax.swing.JFrame {
+ Connection con=null;
     Statement stm = null;
     ResultSet Rs =null;
     /**
-     * Creates new form Teacher
+     * Creates new form PricipalData
      */
-    public TeacherData() {
+    public PricipalData() {
         initComponents();
         con = DBconnect.connect();
     }
@@ -44,27 +43,28 @@ public class TeacherData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
-        Grade = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         TID1 = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        TID2 = new javax.swing.JTextField();
+        Search1 = new javax.swing.JButton();
         TID = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
-        Address = new javax.swing.JTextField();
         Age = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Address = new javax.swing.JTextField();
+        Gendar = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         Bithday = new javax.swing.JTextField();
         CNumber = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        Gendar = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
         Clear = new javax.swing.JButton();
         Submit = new javax.swing.JButton();
         Update = new javax.swing.JButton();
@@ -72,24 +72,6 @@ public class TeacherData extends javax.swing.JFrame {
         ImageI = new javax.swing.JLabel();
         ImageBT = new javax.swing.JButton();
         Name1 = new javax.swing.JLabel();
-
-        jLabel6.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel6.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel6.setText("Grade");
-
-        Grade.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        Grade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "A", "B", "C" }));
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
-
-        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel2.setText("Teacher's Information Form");
 
         jLabel3.setBackground(new java.awt.Color(255, 204, 204));
         jLabel3.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
@@ -110,35 +92,33 @@ public class TeacherData extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel12.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel12.setText("Teacher ID");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel2.setText("Principal's Information Form");
 
         jLabel4.setBackground(new java.awt.Color(255, 204, 204));
         jLabel4.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel4.setText("Name");
+        jLabel4.setText("Principal ID");
 
-        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel5.setText("Address");
+        TID2.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        TID2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TID2ActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel7.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel7.setText("Age");
-
-        jLabel8.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel8.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel8.setText("Brithday");
-
-        jLabel11.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel11.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel11.setText("Contact Number");
+        Search1.setText("Search");
+        Search1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search1ActionPerformed(evt);
+            }
+        });
 
         TID.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         TID.addActionListener(new java.awt.event.ActionListener() {
@@ -147,18 +127,20 @@ public class TeacherData extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel12.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel12.setText("Principal ID");
+
+        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel5.setText("Name");
+
         Name.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameActionPerformed(evt);
-            }
-        });
-
-        Address.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
-        Address.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddressActionPerformed(evt);
             }
         });
 
@@ -168,6 +150,37 @@ public class TeacherData extends javax.swing.JFrame {
                 AgeActionPerformed(evt);
             }
         });
+
+        jLabel7.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel7.setText("Age");
+
+        jLabel6.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel6.setText("Address");
+
+        Address.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        Address.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddressActionPerformed(evt);
+            }
+        });
+
+        Gendar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        Gendar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Male", "Female" }));
+
+        jLabel9.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel9.setText("Grade");
+
+        jLabel8.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel8.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel8.setText("Brithday");
 
         Bithday.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         Bithday.addActionListener(new java.awt.event.ActionListener() {
@@ -183,13 +196,10 @@ public class TeacherData extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel9.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel9.setText("Grade");
-
-        Gendar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        Gendar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Male", "Female" }));
+        jLabel11.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel11.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel11.setText("Contact Number");
 
         Clear.setText("New");
         Clear.addActionListener(new java.awt.event.ActionListener() {
@@ -243,23 +253,22 @@ public class TeacherData extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TID1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TID2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Search1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
                                     .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8))
@@ -283,51 +292,49 @@ public class TeacherData extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Delete))
                             .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
+                        .addGap(77, 77, 77)
+                        .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(327, 327, 327))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(ImageBT)
-                        .addGap(173, 173, 173))
+                        .addGap(295, 295, 295))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Name1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))))
+                        .addGap(127, 127, 127))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ImageBT)
+                .addGap(269, 269, 269))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(TID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search))
+                    .addComponent(jLabel4)
+                    .addComponent(TID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addGap(103, 103, 103)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(65, 65, 65))
+                            .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,13 +359,22 @@ public class TeacherData extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Name1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ImageBT)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -376,34 +392,31 @@ public class TeacherData extends javax.swing.JFrame {
             stm = con.createStatement();
             int Tid = Integer.parseInt(TID1.getText());
             String quary ="SELECT * FROM teacher";
-           String emy = "Emty Photos";
+            String emy = "Emty Photos";
             Rs = stm.executeQuery(quary);
 
             while (Rs.next())
             {
                 if(Tid == Rs.getInt("ID"))
                 {
-                    
-                    TID.setText(String.format("%s",Rs.getInt("ID")));                    
+
+                    TID.setText(String.format("%s",Rs.getInt("ID")));
                     Name.setText(Rs.getString("Name"));
-                    Address.setText(Rs.getString("Address"));                 
+                    Address.setText(Rs.getString("Address"));
                     Age.setText(String.format("%s",Rs.getString("Age") ));
                     Bithday.setText(String.format("%tD", Rs.getDate("B_day")));
                     Gendar.setSelectedItem(Rs.getString("gender"));
                     CNumber.setText(String.format (0+ "%s",Rs.getInt("C_Number")));
-                    Name1.setText(Rs.getString("Name"));
                     //image serching
-                    
+
                     BufferedImage image =ImageIO.read(Rs.getBinaryStream("image"));
                     ImageI.setIcon(new ImageIcon(image) );
-                    
-                   
+
                     if(image==null)
                     {
                         System.out.println("erroe");
-                    
+
                     }
-                   
 
                 }
             }
@@ -414,6 +427,54 @@ public class TeacherData extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchActionPerformed
 
+    private void TID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TID2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TID2ActionPerformed
+
+    private void Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search1ActionPerformed
+        // TODO add your handling code here:
+
+        try {
+
+            stm = con.createStatement();
+            int Pid = Integer.parseInt(TID2.getText());
+            String quary ="SELECT * FROM principal";
+            String emy = "Emty Photos";
+            Rs = stm.executeQuery(quary);
+
+            while (Rs.next())
+            {
+                if(Pid == Rs.getInt("ID"))
+                {
+
+                    TID.setText(String.format("%s",Rs.getInt("ID")));
+                    Name.setText(Rs.getString("Name"));
+                    Address.setText(Rs.getString("Address"));
+                    Age.setText(String.format("%s",Rs.getString("Age") ));
+                    Bithday.setText(String.format("%tD", Rs.getDate("B_day")));
+                    Gendar.setSelectedItem(Rs.getString("gender"));
+                    CNumber.setText(String.format (0+ "%s",Rs.getInt("C_Number")));
+                    Name1.setText(Rs.getString("Name"));
+                    //image serching
+
+                    BufferedImage image =ImageIO.read(Rs.getBinaryStream("image"));
+                    ImageI.setIcon(new ImageIcon(image) );
+
+                    if(image==null)
+                    {
+                        System.out.println("erroe");
+
+                    }
+
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_Search1ActionPerformed
+
     private void TIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TIDActionPerformed
@@ -422,13 +483,13 @@ public class TeacherData extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NameActionPerformed
 
-    private void AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddressActionPerformed
-
     private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AgeActionPerformed
+
+    private void AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressActionPerformed
 
     private void BithdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BithdayActionPerformed
         // TODO add your handling code here:
@@ -439,7 +500,7 @@ public class TeacherData extends javax.swing.JFrame {
     }//GEN-LAST:event_CNumberActionPerformed
 private void ClearData(){
         TID.setText("");
-        TID1.setText("");
+        TID2.setText("");
          Age.setText("");
         Name.setText("");
         Address.setText("");
@@ -463,33 +524,33 @@ private void ClearData(){
         try {
             stm=con.createStatement();
             int TId =Integer.parseInt(TID.getText());
-            
+
             String TName =Name.getText();
             String TAdress = Address.getText();
-            
+
             int TAge = Integer.parseInt(Age.getText());
-            
+
             Long TBithday = Date.parse(Bithday.getText());
             java.sql.Date Bithday = new java.sql.Date(TBithday);
-            
-            String Tgendar = (String) Gendar.getSelectedItem();           
+
+            String Tgendar = (String) Gendar.getSelectedItem();
             int TContact = Integer.parseInt(CNumber.getText());
 
-            String Quary = "INSERT INTO teacher (ID,Name,Address,Age,B_day,gender,C_Number,image )VALUES(?,?,?,?,?,?,?,?)";
+            String Quary = "INSERT INTO principal (ID,Name,Address,Age,B_day,gender,C_Number,image )VALUES(?,?,?,?,?,?,?,?)";
 
             PreparedStatement prapareStm =(PreparedStatement) con.prepareStatement(Quary);
             prapareStm.setInt(1, TId);
             prapareStm.setString(2, TName);
             prapareStm.setString(3, TAdress);
-            
+
             prapareStm.setInt(4, TAge);
             prapareStm.setDate(5, Bithday);
-            prapareStm.setString(6, Tgendar);           
+            prapareStm.setString(6, Tgendar);
             prapareStm.setInt(7, TContact);
             prapareStm.setBytes(8, photo);
 
             prapareStm.execute();
-            JOptionPane.showMessageDialog(null,"Adding Informaion Teacher: - "+TName+" ID= "+TId );
+            JOptionPane.showMessageDialog(null,"Adding Informaion principal: - "+TName+" ID= "+TId );
 
         } catch (Exception e) {
             System.out.println(e);
@@ -510,30 +571,24 @@ private void ClearData(){
             int TAge = Integer.parseInt(Age.getText());
             Long TBithday = Date.parse(Bithday.getText());
             java.sql.Date Bithday = new java.sql.Date(TBithday);
-            String Tgendar = (String) Gendar.getSelectedItem();                       
+            String Tgendar = (String) Gendar.getSelectedItem();
             int TContact = Integer.parseInt(CNumber.getText());
-            
-            
 
-            String Quary = "UPDATE teacher SET Name = ?,Address = ?,Age = ?,B_day = ?,Gender = ?,C_Number = ?,image = ? WHERE ID = ?";
+            String Quary = "UPDATE principal SET Name = ?,Address = ?,Age = ?,B_day = ?,Gender = ?,C_Number = ?,image = ? WHERE ID = ?";
 
             PreparedStatement prapareStm =(PreparedStatement) con.prepareStatement(Quary);
 
-        
-            
             prapareStm.setString(1, TName);
-            prapareStm.setString(2, TAdress);            
+            prapareStm.setString(2, TAdress);
             prapareStm.setInt(3, TAge);
             prapareStm.setDate(4, Bithday);
-            prapareStm.setString(5, Tgendar);           
+            prapareStm.setString(5, Tgendar);
             prapareStm.setInt(6, TContact);
             prapareStm.setBytes(7,photo );
             prapareStm.setInt(8, TId);
-            
-            
 
             prapareStm.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Update Teacher Informaion: - "+TName+" ID= "+TId );
+            JOptionPane.showMessageDialog(null,"Update principal Informaion: - "+TName+" ID= "+TId );
 
         }//try
 
@@ -541,7 +596,6 @@ private void ClearData(){
             System.out.println(e);
             JOptionPane.showMessageDialog(null,e);
         }
-
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
@@ -550,10 +604,10 @@ private void ClearData(){
         try {
             stm =con.createStatement();
             int Tid =Integer.parseInt(TID.getText());
-            String Quary ="DELETE FROM teacher WHERE ID ='"+Tid+"' ";
+            String Quary ="DELETE FROM principal WHERE ID ='"+Tid+"' ";
 
             stm.executeUpdate(Quary);
-            JOptionPane.showMessageDialog(null,"Delete Informaion Teacher " );
+            JOptionPane.showMessageDialog(null,"Delete Informaion principal " );
             ClearData();
 
         } catch (Exception e) {
@@ -569,23 +623,23 @@ private void ClearData(){
         File file = AtachIM.getSelectedFile();
         ImageI.setIcon(new ImageIcon (file.toString()));
         FileName = file.getAbsolutePath();
-        
+
         try {
-            
+
             File Image =new File(FileName);
             FileInputStream FIS = new FileInputStream(Image);
             ByteArrayOutputStream BOS =new ByteArrayOutputStream();
             byte [] buf = new byte[1024];
             for (int reaNumber; (reaNumber=FIS.read(buf)) !=-1;)
             {
-            BOS.write(buf,0,reaNumber);
+                BOS.write(buf,0,reaNumber);
             }
             photo =BOS.toByteArray();
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
-       
+
     }//GEN-LAST:event_ImageBTActionPerformed
 
     /**
@@ -605,21 +659,20 @@ private void ClearData(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeacherData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PricipalData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeacherData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PricipalData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeacherData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PricipalData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeacherData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PricipalData.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TeacherData().setVisible(true);
+                new PricipalData().setVisible(true);
             }
         });
     }
@@ -632,15 +685,16 @@ private void ClearData(){
     private javax.swing.JButton Clear;
     private javax.swing.JButton Delete;
     private javax.swing.JComboBox<String> Gendar;
-    private javax.swing.JComboBox<String> Grade;
     private javax.swing.JButton ImageBT;
     private javax.swing.JLabel ImageI;
     private javax.swing.JTextField Name;
     private javax.swing.JLabel Name1;
     private javax.swing.JButton Search;
+    private javax.swing.JButton Search1;
     private javax.swing.JButton Submit;
     private javax.swing.JTextField TID;
     private javax.swing.JTextField TID1;
+    private javax.swing.JTextField TID2;
     private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -656,6 +710,5 @@ private void ClearData(){
     // End of variables declaration//GEN-END:variables
 byte[] photo =null;
 String FileName= null;
-
 
 }
