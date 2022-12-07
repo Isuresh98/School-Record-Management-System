@@ -81,7 +81,7 @@ public class StudentData extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 204, 204));
         jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel2.setText("Student Form");
+        jLabel2.setText("Student's Information Form");
 
         jLabel3.setBackground(new java.awt.Color(255, 204, 204));
         jLabel3.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
@@ -270,9 +270,6 @@ public class StudentData extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,7 +288,10 @@ public class StudentData extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(375, 375, 375)
+                        .addComponent(jLabel2)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

@@ -3,18 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package defult;
-
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Date;
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane; 
+import javax.swing.ImageIcon;
+import static javax.swing.UIManager.getString;
 /**
  *
  * @author indun
  */
 public class TeacherData extends javax.swing.JFrame {
 
+     Connection con=null;
+    Statement stm = null;
+    ResultSet Rs =null;
     /**
      * Creates new form Teacher
      */
     public TeacherData() {
         initComponents();
+        con = DBconnect.connect();
     }
 
     /**
@@ -26,21 +44,535 @@ public class TeacherData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel6 = new javax.swing.JLabel();
+        Grade = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        TID1 = new javax.swing.JTextField();
+        Search = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TID = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        Address = new javax.swing.JTextField();
+        Age = new javax.swing.JTextField();
+        Bithday = new javax.swing.JTextField();
+        CNumber = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        Gendar = new javax.swing.JComboBox<>();
+        Clear = new javax.swing.JButton();
+        Submit = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
+        ImageI = new javax.swing.JLabel();
+        ImageBT = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
+        jLabel6.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel6.setText("Grade");
+
+        Grade.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        Grade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "A", "B", "C" }));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel2.setText("Teacher's Information Form");
+
+        jLabel3.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel3.setText("Teacher ID");
+
+        TID1.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        TID1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TID1ActionPerformed(evt);
+            }
+        });
+
+        Search.setText("Search");
+        Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel12.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel12.setText("Teacher ID");
+
+        jLabel4.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel4.setText("Name");
+
+        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel5.setText("Address");
+
+        jLabel7.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel7.setText("Age");
+
+        jLabel8.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel8.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel8.setText("Brithday");
+
+        jLabel11.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel11.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel11.setText("Contact Number");
+
+        TID.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        TID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TIDActionPerformed(evt);
+            }
+        });
+
+        Name.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameActionPerformed(evt);
+            }
+        });
+
+        Address.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        Address.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddressActionPerformed(evt);
+            }
+        });
+
+        Age.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        Age.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgeActionPerformed(evt);
+            }
+        });
+
+        Bithday.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        Bithday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BithdayActionPerformed(evt);
+            }
+        });
+
+        CNumber.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        CNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNumberActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Sitka Display", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel9.setText("Grade");
+
+        Gendar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        Gendar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Male", "Female" }));
+
+        Clear.setText("New");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+
+        Submit.setText("Submit");
+        Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitActionPerformed(evt);
+            }
+        });
+
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+
+        ImageI.setBackground(new java.awt.Color(255, 204, 255));
+        ImageI.setForeground(new java.awt.Color(204, 204, 255));
+        ImageI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ImageI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defult/images.jpg"))); // NOI18N
+        ImageI.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ImageI.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+
+        ImageBT.setText("Upload Image");
+        ImageBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImageBTActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(726, 726, 726)
+                        .addComponent(ImageBT))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel8))
+                                        .addGap(37, 37, 37))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Bithday, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Gendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Clear)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Submit)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Update)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Delete))
+                                    .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(77, 77, 77)
+                                .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TID1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(27, 27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(327, 327, 327))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(TID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(65, 65, 65))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Gendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Bithday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Submit)
+                            .addComponent(Clear)
+                            .addComponent(Update)
+                            .addComponent(Delete)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ImageI, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(ImageBT)
+                .addGap(66, 66, 66))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TID1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TID1ActionPerformed
+
+    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+        // TODO add your handling code here:
+
+        try {
+
+            stm = con.createStatement();
+            int Tid = Integer.parseInt(TID1.getText());
+            String quary ="SELECT * FROM teacher";
+           String emy = "Emty Photos";
+            Rs = stm.executeQuery(quary);
+
+            while (Rs.next())
+            {
+                if(Tid == Rs.getInt("ID"))
+                {
+                    
+                    TID.setText(String.format("%s",Rs.getInt("ID")));                    
+                    Name.setText(Rs.getString("Name"));
+                    Address.setText(Rs.getString("Address"));                 
+                    Age.setText(String.format("%s",Rs.getString("Age") ));
+                    Bithday.setText(String.format("%tD", Rs.getDate("B_day")));
+                    Gendar.setSelectedItem(Rs.getString("gender"));
+                    CNumber.setText(String.format (0+ "%s",Rs.getInt("C_Number")));
+                    //image serching
+                    
+                    BufferedImage image =ImageIO.read(Rs.getBinaryStream("image"));
+                    ImageI.setIcon(new ImageIcon(image) );
+                    
+                   
+                    if(image==null)
+                    {
+                        System.out.println("erroe");
+                    
+                    }
+                   
+
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_SearchActionPerformed
+
+    private void TIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TIDActionPerformed
+
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameActionPerformed
+
+    private void AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressActionPerformed
+
+    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgeActionPerformed
+
+    private void BithdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BithdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BithdayActionPerformed
+
+    private void CNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNumberActionPerformed
+private void ClearData(){
+        TID.setText("");
+        TID1.setText("");
+         Age.setText("");
+        Name.setText("");
+        Address.setText("");
+        Grade.setSelectedItem("");
+        Bithday.setText("");
+        Gendar.setSelectedItem("");  
+        CNumber.setText("");
+        ImageI.setIcon(null);
+        
+        
+        
+    }
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        ClearData();
+    }//GEN-LAST:event_ClearActionPerformed
+
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+        // TODO add your handling code here:
+        try {
+            stm=con.createStatement();
+            int TId =Integer.parseInt(TID.getText());
+            
+            String TName =Name.getText();
+            String TAdress = Address.getText();
+            
+            int TAge = Integer.parseInt(Age.getText());
+            
+            Long TBithday = Date.parse(Bithday.getText());
+            java.sql.Date Bithday = new java.sql.Date(TBithday);
+            
+            String Tgendar = (String) Gendar.getSelectedItem();           
+            int TContact = Integer.parseInt(CNumber.getText());
+
+            String Quary = "INSERT INTO teacher (ID,Name,Address,Age,B_day,gender,C_Number,image )VALUES(?,?,?,?,?,?,?,?)";
+
+            PreparedStatement prapareStm =(PreparedStatement) con.prepareStatement(Quary);
+            prapareStm.setInt(1, TId);
+            prapareStm.setString(2, TName);
+            prapareStm.setString(3, TAdress);
+            
+            prapareStm.setInt(4, TAge);
+            prapareStm.setDate(5, Bithday);
+            prapareStm.setString(6, Tgendar);           
+            prapareStm.setInt(7, TContact);
+            prapareStm.setBytes(8, photo);
+
+            prapareStm.execute();
+            JOptionPane.showMessageDialog(null,"Adding Informaion Teacher: - "+TName+" ID= "+TId );
+
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,"Not Submit..Cheak Your Form..");
+            JOptionPane.showMessageDialog(null,e);
+        }
+
+        //submit
+    }//GEN-LAST:event_SubmitActionPerformed
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
+        try {
+            stm=con.createStatement();
+            int TId =Integer.parseInt(TID.getText());
+            String TName =Name.getText();
+            String TAdress = Address.getText();
+            int TAge = Integer.parseInt(Age.getText());
+            Long TBithday = Date.parse(Bithday.getText());
+            java.sql.Date Bithday = new java.sql.Date(TBithday);
+            String Tgendar = (String) Gendar.getSelectedItem();                       
+            int TContact = Integer.parseInt(CNumber.getText());
+            
+            
+
+            String Quary = "UPDATE teacher SET Name = ?,Address = ?,Age = ?,B_day = ?,Gender = ?,C_Number = ?,image = ? WHERE ID = ?";
+
+            PreparedStatement prapareStm =(PreparedStatement) con.prepareStatement(Quary);
+
+        
+            
+            prapareStm.setString(1, TName);
+            prapareStm.setString(2, TAdress);            
+            prapareStm.setInt(3, TAge);
+            prapareStm.setDate(4, Bithday);
+            prapareStm.setString(5, Tgendar);           
+            prapareStm.setInt(6, TContact);
+            prapareStm.setBytes(7,photo );
+            prapareStm.setInt(8, TId);
+            
+            
+
+            prapareStm.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Update Teacher Informaion: - "+TName+" ID= "+TId );
+
+        }//try
+
+        catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
+        }
+
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            stm =con.createStatement();
+            int Tid =Integer.parseInt(TID.getText());
+            String Quary ="DELETE FROM teacher WHERE ID ='"+Tid+"' ";
+
+            stm.executeUpdate(Quary);
+            JOptionPane.showMessageDialog(null,"Delete Informaion Teacher " );
+            ClearData();
+
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,"Delete Error.....");
+        }
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void ImageBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImageBTActionPerformed
+        // TODO add your handling code here:
+        JFileChooser AtachIM= new JFileChooser();
+        AtachIM.showOpenDialog(null);
+        File file = AtachIM.getSelectedFile();
+        ImageI.setIcon(new ImageIcon (file.toString()));
+        FileName = file.getAbsolutePath();
+        
+        try {
+            
+            File Image =new File(FileName);
+            FileInputStream FIS = new FileInputStream(Image);
+            ByteArrayOutputStream BOS =new ByteArrayOutputStream();
+            byte [] buf = new byte[1024];
+            for (int reaNumber; (reaNumber=FIS.read(buf)) !=-1;)
+            {
+            BOS.write(buf,0,reaNumber);
+            }
+            photo =BOS.toByteArray();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+    }//GEN-LAST:event_ImageBTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +611,36 @@ public class TeacherData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Address;
+    private javax.swing.JTextField Age;
+    private javax.swing.JTextField Bithday;
+    private javax.swing.JTextField CNumber;
+    private javax.swing.JButton Clear;
+    private javax.swing.JButton Delete;
+    private javax.swing.JComboBox<String> Gendar;
+    private javax.swing.JComboBox<String> Grade;
+    private javax.swing.JButton ImageBT;
+    private javax.swing.JLabel ImageI;
+    private javax.swing.JTextField Name;
+    private javax.swing.JButton Search;
+    private javax.swing.JButton Submit;
+    private javax.swing.JTextField TID;
+    private javax.swing.JTextField TID1;
+    private javax.swing.JButton Update;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+byte[] photo =null;
+String FileName= null;
+
+
 }
